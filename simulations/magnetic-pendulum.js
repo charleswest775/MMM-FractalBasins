@@ -102,7 +102,7 @@
 			// the pair from the deepest zoom: at full scale they start as one
 			const deepest = this.meta.views[this.meta.views.length - 1];
 			this.pair = deepest.pair.map(([x, y, m]) => ({ s: new Float64Array([x, y, 0, 0]), x0: x, y0: y, predicted: m, path: [[x, y]] }));
-			this.clock = new root.ChaosCommon.FixedClock(PARAMS.dt / 4); // 4 simulated seconds per real second
+			this.clock = new root.BasinsCommon.FixedClock(PARAMS.dt / 4); // 4 simulated seconds per real second
 			this.simTime = 0;
 			this.t = 0;
 			this.phase = "fade";
@@ -218,7 +218,7 @@
 			const zoom = this.phase === "hold" || this.phase === "zoom" ? `\nview: ${Math.round(this.meta.views[0].half / this.meta.views[this.zoomFrom].half)}× magnified` : "";
 			return `white released at (${a.x0.toFixed(6)}, ${a.y0.toFixed(6)})  ${end(a)}\n` +
 				`black released at (${b.x0.toFixed(6)}, ${b.y0.toFixed(6)})  ${end(b)}\n` +
-				`${root.ChaosCommon.sci(b.x0 - a.x0)} apart — every colour boundary is infinitely intricate${zoom}`;
+				`${root.BasinsCommon.sci(b.x0 - a.x0)} apart — every colour boundary is infinitely intricate${zoom}`;
 		}
 	}
 
@@ -228,13 +228,13 @@
 		equations: [
 			"r̈ = −k r − b ṙ + Σ<sub>i</sub> <span class=\"frac\"><span>r<sub>i</sub> − r</span><span>(|r<sub>i</sub> − r|² + h²)<sup>3/2</sup></span></span>",
 			"k = 0.5 (spring),  b = 0.15 (friction),  h = 0.25 (magnet depth)",
-			"<span class=\"chaos-note\">each pixel is a release point, coloured by the magnet it ends over; darker = longer wander</span>"
+			"<span class=\"basins-note\">each pixel is a release point, coloured by the magnet it ends over; darker = longer wander</span>"
 		]
 	};
 
 	const physics = { PARAMS, MAGNETS, accel, rk4, settle, energy, nearest };
-	root.ChaosSimulations = root.ChaosSimulations || {};
-	root.ChaosSimulations.basins = Basins;
-	root.MagneticPendulum = physics;
+	root.BasinsSimulations = root.BasinsSimulations || {};
+	root.BasinsSimulations.basins = Basins;
+	root.BasinsMagneticPendulum = physics;
 	if (typeof module !== "undefined") module.exports = physics;
 })(typeof window !== "undefined" ? window : globalThis);
