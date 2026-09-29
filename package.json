@@ -1,7 +1,7 @@
 {
   "name": "mmm-fractalbasins",
   "version": "1.0.0",
-  "description": "MagicMirror² module: Fractal basins: a pendulum over three magnets, each pixel coloured by the magnet it ends over, zooming into the boundary.",
+  "description": "MagicMirror² module: a pendulum swinging over three magnets, and a zoom ×1000 into the fractal map of which magnet it comes to rest over, drawn for a Raspberry Pi without a GPU.",
   "main": "MMM-FractalBasins.js",
   "scripts": {
     "test": "node --test"
