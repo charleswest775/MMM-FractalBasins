@@ -39,7 +39,7 @@ belongs in both.
 The shell (`MMM-FractalBasins.js`, `node_helper.js`'s stats panel, `dev/preview.html`) is shared
 in spirit with the sibling modules (MMM-ChaosTheory, the other split-out chaos modules, and
 MMM-FractalZoom, MMM-Atom, MMM-Chladni, MMM-SacredGeometry, MMM-Tilings, MMM-PlanetsDance,
-MMM-SnowCrystal, MMM-NightSky, MMM-PhotoDeck): a fix there probably belongs in the siblings too.
+MMM-SnowCrystal, MMM-NightSky, MMM-PhotoDeck, MMM-StandardMap, MMM-ChaoticWaterwheel, MMM-DoubleSlit, MMM-Sandpile, MMM-Harmonograph): a fix there probably belongs in the siblings too.
 
 ## Measured cost on the Pi
 
